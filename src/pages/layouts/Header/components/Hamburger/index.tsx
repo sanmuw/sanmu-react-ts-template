@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import Icon,{ MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import './index.less'
+import { useDispatch } from "react-redux";
+
+import {changeSiderbarCollage} from '@/redux/common/actions'
 
 interface IProps {
-  onToggle:() => void
+  // onToggle:() => void
 }
 
-const Hamburger = ({onToggle}:IProps) => {
+const Hamburger = () => {
   const [pos, setPos] = useState<boolean>(true)
+  const dispatch = useDispatch()
   const changePos =() => {
-    onToggle()
     setPos(!pos)
+    dispatch(changeSiderbarCollage())
   }
 
   return (
-    <div className="hamburger-container">
+    <div className="hamburger-container" onClick={changePos}>
       {
-        pos ? <MenuFoldOutlined onClick={changePos}/> : <MenuUnfoldOutlined onClick={changePos}/>
+        pos ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />
       }
     </div>
   )  
