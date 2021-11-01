@@ -8,10 +8,9 @@ const { Header  } = Layout
 interface IProps {
   fixedHeader: boolean;
   sidebarCollapsed: boolean;
-  onToggle: () => void
 }
 
-const LayHeader = ({ fixedHeader, sidebarCollapsed,onToggle }: IProps) => {
+const LayHeader = ({ fixedHeader, sidebarCollapsed }: IProps) => {
   console.log('LayHeader',sidebarCollapsed)
   const computedStyle = () => {
     let styles:object;
@@ -38,7 +37,7 @@ const LayHeader = ({ fixedHeader, sidebarCollapsed,onToggle }: IProps) => {
       style={computedStyle()}
       className={ fixedHeader ? 'fix-header' : ''}
     >
-      <Hamburger onToggle={onToggle}/>
+      <Hamburger/>
       <div className="right-menu">
         <div className="dropdown-wrap">
           <div>
