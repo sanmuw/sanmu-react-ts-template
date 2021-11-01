@@ -15,6 +15,7 @@ import { IMenuList } from "@/config/menuConfig";
 
 type MenuState = {
 	collapsed: boolean
+  openKey: []
 }
 
 const { SubMenu, Item } = AntMenu
@@ -27,7 +28,7 @@ const Menu = ({collapsed}:MenuState ) => {
 
 	// 菜单渲染
 	const getMenuNodes = (menuList:IMenuList[]) => {
-		return menuList.reduce((pre:JSX.Element[],cur:IMenuList) => {
+		return menuList.reduce((pre:any[],cur:IMenuList) => {
 			if(!cur.children || !cur.children.length) {
 				pre.push(
 					<Item key={cur.path}>

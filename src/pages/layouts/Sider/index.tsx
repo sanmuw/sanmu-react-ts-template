@@ -2,7 +2,6 @@ import React from "react";
 import { Layout } from 'antd'
 import Logo from "./components/Logo";
 import Menu from "./components/Menu";
-import { useSelector } from "react-redux";
 
 const { Sider } = Layout
 
@@ -11,9 +10,7 @@ type IProps = {
   sidebarLogo: boolean
 }
 
-const LayoutSider = ({sidebarLogo}:IProps) => {
-  const sidebarCollapsed = useSelector((state:any) =>  state.common.sidebarCollapsed)
-
+const LayoutSider = ({sidebarCollapsed,sidebarLogo}:IProps) => {
   console.log(sidebarCollapsed)
   return (
     <Sider
